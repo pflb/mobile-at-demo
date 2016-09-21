@@ -8,10 +8,10 @@ import ru.pflb.at.mobile.test.BaseTest;
 
 import java.util.List;
 
-public class DayTwoTest extends BaseTest{
+public class DayThreeTest extends BaseTest{
 
     @Test
-    public void testSearchInput(){
+    public void testSwipe(){
         System.out.print("Search for element...");
         Assert.assertTrue(mainScreen.searchBar.isDisplayed());
 
@@ -25,18 +25,37 @@ public class DayTwoTest extends BaseTest{
             System.out.println("Found element:"+element.getText());
         }
 
+
         System.out.println("Click on first search result...");
         WebElement firstSearchResult=listResult.get(0);
         Assert.assertTrue(firstSearchResult.getText().contains("Donald Duck"));
         firstSearchResult.click();
-
-        Assert.assertTrue(driver.findElement(By.id("org.wikipedia.alpha:id/view_article_header_text")).getText().contains("Donald Duck"));
 
         try {
             Thread.sleep(5*1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Done");
+
+        switchToWebView();
+
+        List<WebElement> allLinks = driver.findElements(By.tagName("a"));
+        driver.findElement(By.cssSelector("#content"));
+        int i =0;
+        for (WebElement eachLink : allLinks) {
+            System.out.print("Found link:"+eachLink.getText());
+            if(i>10){
+                break;
+            }
+        }
+
+        switchToNative();
+
+        try {
+            Thread.sleep(10*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
+
 }
