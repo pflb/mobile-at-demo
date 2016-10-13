@@ -1,5 +1,6 @@
 package ru.pflb.at.mobile.test.wiki.pages;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -17,6 +18,13 @@ public class MainScreen {
     public MainScreen(){
         System.out.println("Initializing Main screen elements");
         PageFactory.initElements(new AppiumFieldDecorator(BaseTest.getDriver(), 20, TimeUnit.SECONDS), this);
+
+    }
+
+    public MainScreen(AppiumDriver driver){
+        System.out.println("Initializing Main screen elements");
+        PageFactory.initElements(new AppiumFieldDecorator(driver, 20, TimeUnit.SECONDS), this);
+
     }
 
 }
