@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite1" parallel="tests" >
+	<test name="Device1">
+		<parameter name="Device_ID" value="192.168.136.101:5555" />
+		<parameter name="Appium_Port" value="http://127.0.0.1:4725/wd/hub" />
+		<classes>
+			<class name="ru.pflb.at.mobile.test.wiki.DaySixTest" />
+		</classes>
+	</test>
+	<test name="Device2" >
+		<parameter name="Device_ID" value="192.168.136.102:5555" />
+		<parameter name="Appium_Port" value="http://127.0.0.1:4723/wd/hub" />
+		<classes>
+			<class name="ru.pflb.at.mobile.test.wiki.DaySixTest" />
+		</classes>
+	</test>
+</suite>
